@@ -1,22 +1,22 @@
 import 'package:apisample/HomePage/MyHomePage.dart';
-import 'package:apisample/Provider/MovieDetails/movieDetailProvider.dart';
+import 'package:apisample/Provider/TvShowsProvider/tvShowDetailsProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ScreenMovieDetails extends StatefulWidget {
-  const ScreenMovieDetails({Key? key, required this.id}) : super(key: key);
-  final String id;
+class ScreenTvShowDetails extends StatefulWidget {
+  ScreenTvShowDetails({Key? key, required this.id}) : super(key: key);
+  String id;
 
   @override
-  State<ScreenMovieDetails> createState() => _ScreenMovieDetailsState();
+  State<ScreenTvShowDetails> createState() => _ScreenTvShowDetails();
 }
 
-class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
+class _ScreenTvShowDetails extends State<ScreenTvShowDetails> {
   @override
   void initState() {
-    final movieProvider = Provider.of<MovieProvider>(context, listen: false);
-    movieProvider.getMovieDetails(context, widget.id);
-
+    final tvShDetProv =
+        Provider.of<TvShowDetailsProvider>(context, listen: false);
+    tvShDetProv.getTvShDePro(context, widget.id);
     // TODO: implement initState
     super.initState();
   }
@@ -25,11 +25,13 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
 
   @override
   Widget build(BuildContext context) {
-    final providerData = Provider.of<MovieProvider>(context, listen: false);
+    final tvShDetProv =
+        Provider.of<TvShowDetailsProvider>(context, listen: false);
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
-        body: providerData.loading
+        body: tvShDetProv.loading
             ? Center(
                 child: CircularProgressIndicator(),
               )
@@ -42,7 +44,7 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
                       image: DecorationImage(
                         image: NetworkImage(
                           baseUrl +
-                              providerData.movieDetailsModel.posterPath
+                              tvShDetProv.tvShowsDetailsModel.posterPath
                                   .toString(),
                         ),
                         fit: BoxFit.fitHeight,
@@ -51,7 +53,7 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    providerData.movieDetailsModel.title.toString(),
+                    tvShDetProv.tvShowsDetailsModel.name.toString(),
                     style: TextStyle(
                       fontSize: 30,
                       color: Colors.white,
@@ -65,7 +67,8 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
                     children: [
                       Text(
                         "RunTime:" +
-                            providerData.movieDetailsModel.runtime.toString() +
+                            tvShDetProv.tvShowsDetailsModel.episodeRunTime
+                                .toString() +
                             " min",
                         style: TextStyle(
                           fontSize: 12,
@@ -76,7 +79,7 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
                       ),
                       Text(
                         "Release Date" +
-                            providerData.movieDetailsModel.releaseDate
+                            tvShDetProv.tvShowsDetailsModel.firstAirDate
                                 .toString(),
                         style: TextStyle(
                           fontSize: 12,
@@ -87,7 +90,7 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
                       ),
                       Text(
                         "Average Vote" +
-                            providerData.movieDetailsModel.voteAverage
+                            tvShDetProv.tvShowsDetailsModel.voteAverage
                                 .toString(),
                         style: TextStyle(
                           fontSize: 12,
@@ -104,7 +107,7 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
                   Column(
                     children: [
                       Text(
-                        providerData.movieDetailsModel.overview.toString(),
+                        tvShDetProv.tvShowsDetailsModel.overview.toString(),
                         style: TextStyle(
                             color: Colors.white,
                             overflow: toggleTF

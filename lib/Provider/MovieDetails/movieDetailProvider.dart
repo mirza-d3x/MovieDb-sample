@@ -13,6 +13,8 @@ class MovieProvider with ChangeNotifier{
     loading = true;
     movieDetailsModel = await moviesApi.getMoviesDetails(id);
     loading = false;
+    print("detailsProvider$id");
     notifyListeners();
+
   }
 }

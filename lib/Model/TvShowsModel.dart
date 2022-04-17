@@ -5,15 +5,16 @@
 
 class TvshowsModel {
   TvshowsModel({
-      int? page, 
-      List<Results>? results, 
-      int? totalPages, 
-      int? totalResults,}){
+    int? page,
+    List<Results>? results,
+    int? totalPages,
+    int? totalResults,
+  }) {
     _page = page;
     _results = results;
     _totalPages = totalPages;
     _totalResults = totalResults;
-}
+  }
 
   TvshowsModel.fromJson(dynamic json) {
     _page = json['page'];
@@ -26,22 +27,31 @@ class TvshowsModel {
     _totalPages = json['total_pages'];
     _totalResults = json['total_results'];
   }
+
   int? _page;
   List<Results>? _results;
   int? _totalPages;
   int? _totalResults;
-TvshowsModel copyWith({  int? page,
-  List<Results>? results,
-  int? totalPages,
-  int? totalResults,
-}) => TvshowsModel(  page: page ?? _page,
-  results: results ?? _results,
-  totalPages: totalPages ?? _totalPages,
-  totalResults: totalResults ?? _totalResults,
-);
+
+  TvshowsModel copyWith({
+    int? page,
+    List<Results>? results,
+    int? totalPages,
+    int? totalResults,
+  }) =>
+      TvshowsModel(
+        page: page ?? _page,
+        results: results ?? _results,
+        totalPages: totalPages ?? _totalPages,
+        totalResults: totalResults ?? _totalResults,
+      );
+
   int? get page => _page;
+
   List<Results>? get results => _results;
+
   int? get totalPages => _totalPages;
+
   int? get totalResults => _totalResults;
 
   Map<String, dynamic> toJson() {
@@ -54,7 +64,6 @@ TvshowsModel copyWith({  int? page,
     map['total_results'] = _totalResults;
     return map;
   }
-
 }
 
 /// backdrop_path : "/1qpUk27LVI9UoTS7S0EixUBj5aR.jpg"
@@ -73,19 +82,20 @@ TvshowsModel copyWith({  int? page,
 
 class Results {
   Results({
-      String? backdropPath, 
-      String? firstAirDate, 
-      List<int>? genreIds, 
-      int? id, 
-      String? name, 
-      List<String>? originCountry, 
-      String? originalLanguage, 
-      String? originalName, 
-      String? overview, 
-      double? popularity, 
-      String? posterPath, 
-      double? voteAverage, 
-      int? voteCount,}){
+    String? backdropPath,
+    String? firstAirDate,
+    List<int>? genreIds,
+    int? id,
+    String? name,
+    List<String>? originCountry,
+    String? originalLanguage,
+    String? originalName,
+    String? overview,
+    dynamic popularity,
+    String? posterPath,
+    dynamic voteAverage,
+    int? voteCount,
+  }) {
     _backdropPath = backdropPath;
     _firstAirDate = firstAirDate;
     _genreIds = genreIds;
@@ -99,7 +109,7 @@ class Results {
     _posterPath = posterPath;
     _voteAverage = voteAverage;
     _voteCount = voteCount;
-}
+  }
 
   Results.fromJson(dynamic json) {
     _backdropPath = json['backdrop_path'];
@@ -107,7 +117,9 @@ class Results {
     _genreIds = json['genre_ids'] != null ? json['genre_ids'].cast<int>() : [];
     _id = json['id'];
     _name = json['name'];
-    _originCountry = json['origin_country'] != null ? json['origin_country'].cast<String>() : [];
+    _originCountry = json['origin_country'] != null
+        ? json['origin_country'].cast<String>()
+        : [];
     _originalLanguage = json['original_language'];
     _originalName = json['original_name'];
     _overview = json['overview'];
@@ -116,6 +128,7 @@ class Results {
     _voteAverage = json['vote_average'];
     _voteCount = json['vote_count'];
   }
+
   String? _backdropPath;
   String? _firstAirDate;
   List<int>? _genreIds;
@@ -125,49 +138,66 @@ class Results {
   String? _originalLanguage;
   String? _originalName;
   String? _overview;
-  double? _popularity;
+  dynamic _popularity;
   String? _posterPath;
-  double? _voteAverage;
+  dynamic _voteAverage;
   int? _voteCount;
-Results copyWith({  String? backdropPath,
-  String? firstAirDate,
-  List<int>? genreIds,
-  int? id,
-  String? name,
-  List<String>? originCountry,
-  String? originalLanguage,
-  String? originalName,
-  String? overview,
-  double? popularity,
-  String? posterPath,
-  double? voteAverage,
-  int? voteCount,
-}) => Results(  backdropPath: backdropPath ?? _backdropPath,
-  firstAirDate: firstAirDate ?? _firstAirDate,
-  genreIds: genreIds ?? _genreIds,
-  id: id ?? _id,
-  name: name ?? _name,
-  originCountry: originCountry ?? _originCountry,
-  originalLanguage: originalLanguage ?? _originalLanguage,
-  originalName: originalName ?? _originalName,
-  overview: overview ?? _overview,
-  popularity: popularity ?? _popularity,
-  posterPath: posterPath ?? _posterPath,
-  voteAverage: voteAverage ?? _voteAverage,
-  voteCount: voteCount ?? _voteCount,
-);
+
+  Results copyWith({
+    String? backdropPath,
+    String? firstAirDate,
+    List<int>? genreIds,
+    int? id,
+    String? name,
+    List<String>? originCountry,
+    String? originalLanguage,
+    String? originalName,
+    String? overview,
+    dynamic popularity,
+    String? posterPath,
+    dynamic voteAverage,
+    int? voteCount,
+  }) =>
+      Results(
+        backdropPath: backdropPath ?? _backdropPath,
+        firstAirDate: firstAirDate ?? _firstAirDate,
+        genreIds: genreIds ?? _genreIds,
+        id: id ?? _id,
+        name: name ?? _name,
+        originCountry: originCountry ?? _originCountry,
+        originalLanguage: originalLanguage ?? _originalLanguage,
+        originalName: originalName ?? _originalName,
+        overview: overview ?? _overview,
+        popularity: popularity ?? _popularity,
+        posterPath: posterPath ?? _posterPath,
+        voteAverage: voteAverage ?? _voteAverage,
+        voteCount: voteCount ?? _voteCount,
+      );
+
   String? get backdropPath => _backdropPath;
+
   String? get firstAirDate => _firstAirDate;
+
   List<int>? get genreIds => _genreIds;
+
   int? get id => _id;
+
   String? get name => _name;
+
   List<String>? get originCountry => _originCountry;
+
   String? get originalLanguage => _originalLanguage;
+
   String? get originalName => _originalName;
+
   String? get overview => _overview;
-  double? get popularity => _popularity;
+
+  dynamic get popularity => _popularity;
+
   String? get posterPath => _posterPath;
-  double? get voteAverage => _voteAverage;
+
+  dynamic get voteAverage => _voteAverage;
+
   int? get voteCount => _voteCount;
 
   Map<String, dynamic> toJson() {
@@ -187,5 +217,4 @@ Results copyWith({  String? backdropPath,
     map['vote_count'] = _voteCount;
     return map;
   }
-
 }
