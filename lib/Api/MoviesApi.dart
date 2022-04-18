@@ -5,6 +5,7 @@ import 'package:apisample/Api/ApiClient.dart';
 import 'package:apisample/Model/TvShowsModel.dart';
 import 'package:http/http.dart';
 import 'package:apisample/Model/TvShowDetailsModel.dart';
+import 'package:apisample/Model/searchModel.dart';
 
 class MoviesApi {
   ApiClient apiClient = ApiClient();
@@ -12,24 +13,35 @@ class MoviesApi {
   String moviePath = "movie/";
   String tvShowsPath = "tv/top_rated";
   String tvShowPath = "tv/";
+  String searchPatch = "search/multi";
 
   Future<MovieDetailsModel> getMoviesDetails(String id) async {
-    Response response = await apiClient.invokeApi(moviePath + id, 'GET', null);
+    Response response =
+        await apiClient.invokeApi(moviePath + id, 'GET', null, false);
     return MovieDetailsModel.fromJson(jsonDecode(response.body));
   }
 
   Future<TrendingModel> getTrendingMovie() async {
-    Response response = await apiClient.invokeApi(trendingpath, 'GET', null);
+    Response response =
+        await apiClient.invokeApi(trendingpath, 'GET', null, false);
     return TrendingModel.fromJson(jsonDecode(response.body));
   }
 
   Future<TvshowsModel> getTvShows() async {
-    Response response = await apiClient.invokeApi(tvShowsPath, 'GET', null);
+    Response response =
+        await apiClient.invokeApi(tvShowsPath, 'GET', null, false);
     return TvshowsModel.fromJson(jsonDecode(response.body));
   }
 
   Future<TvShowDetailsModel> getMoviesDetailsApi(String id) async {
-    Response response = await apiClient.invokeApi(tvShowPath + id, 'GET', null);
+    Response response =
+        await apiClient.invokeApi(tvShowPath + id, 'GET', null, false);
     return TvShowDetailsModel.fromJson(jsonDecode(response.body));
+  }
+
+  Future<SearchModel> getSearchResulsApi(String searchQuery) async {
+    Response response =
+        await apiClient.invokeApi(searchPatch, 'GET', null, true);
+    return SearchModel.fromJson(jsonDecode(response.body));
   }
 }

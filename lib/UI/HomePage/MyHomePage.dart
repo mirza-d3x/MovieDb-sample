@@ -1,8 +1,9 @@
 import 'package:apisample/Model/TrendingModel.dart';
-import 'package:apisample/MovieDetails/ScreenMovieDetails.dart';
 import 'package:apisample/Provider/TrendingProvider/providertrending.dart';
 import 'package:apisample/Provider/TvShowsProvider/tvShowsProvider.dart';
-import 'package:apisample/TvShows/tvShowsDetails.dart';
+import 'package:apisample/UI/MovieDetails/ScreenMovieDetails.dart';
+import 'package:apisample/UI/SearchScreen/searchScreen.dart';
+import 'package:apisample/UI/TvShows/tvShowsDetails.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -46,16 +47,24 @@ class _MyHomePageState extends State<MyHomePage> {
       body: ListView(
         children: [
           Container(
-              margin: EdgeInsets.only(left: 10, right: 10, top: 10),
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(10)),
-              child: TextField(
-                textAlign: TextAlign.center,
-                decoration: InputDecoration(
-                    border: InputBorder.none,
-                    hintText: "Search Movies & Tv Shows",
-                    prefixIcon: Icon(Icons.search)),
-              )),
+            margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
+            decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(10)),
+            child: TextField(
+              textAlign: TextAlign.center,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: "Search Movies & Tv Shows",
+                prefixIcon: Icon(Icons.search),
+              ),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => ScreenSearch(),
+                ),
+              ),
+            ),
+          ),
           SingleChildScrollView(
             child: ConstrainedBox(
               constraints:
@@ -106,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     ),
                                   ),
                                   child: Container(
-                                    margin: EdgeInsets.all(10),
+                                    margin: const EdgeInsets.all(10),
                                     height: MediaQuery.of(context).size.height *
                                         .30,
                                     width:
