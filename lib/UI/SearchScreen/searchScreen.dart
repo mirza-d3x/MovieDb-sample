@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:apisample/Provider/SearchResults/searchProvider.dart';
 import 'package:apisample/UI/HomePage/MyHomePage.dart';
 import 'package:flutter/material.dart';
@@ -61,9 +59,9 @@ class _ScreenSearchState extends State<ScreenSearch> {
                     ),
                   )
                 : ListView(
-              shrinkWrap: true,
+                    shrinkWrap: true,
                     children: [
-                       Padding(
+                      Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Text(
                           'Found ${searPrv.searchModel.results!.length.toString()} Results',
@@ -103,9 +101,10 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: NetworkImage(
-                                          baseUrl+searPrv.searchModel.results![index]
-                                              .posterPath
-                                              .toString(),
+                                          baseUrl +
+                                              searPrv.searchModel
+                                                  .results![index].posterPath
+                                                  .toString(),
                                         ),
                                       ),
                                     ),
