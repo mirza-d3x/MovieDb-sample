@@ -5,15 +5,16 @@
 
 class SearchModel {
   SearchModel({
-      int? page, 
-      List<Results>? results, 
-      int? totalPages, 
-      int? totalResults,}){
+    int? page,
+    List<Results>? results,
+    int? totalPages,
+    int? totalResults,
+  }) {
     _page = page;
     _results = results;
     _totalPages = totalPages;
     _totalResults = totalResults;
-}
+  }
 
   SearchModel.fromJson(dynamic json) {
     _page = json['page'];
@@ -26,22 +27,31 @@ class SearchModel {
     _totalPages = json['total_pages'];
     _totalResults = json['total_results'];
   }
+
   int? _page;
   List<Results>? _results;
   int? _totalPages;
   int? _totalResults;
-SearchModel copyWith({  int? page,
-  List<Results>? results,
-  int? totalPages,
-  int? totalResults,
-}) => SearchModel(  page: page ?? _page,
-  results: results ?? _results,
-  totalPages: totalPages ?? _totalPages,
-  totalResults: totalResults ?? _totalResults,
-);
+
+  SearchModel copyWith({
+    int? page,
+    List<Results>? results,
+    int? totalPages,
+    int? totalResults,
+  }) =>
+      SearchModel(
+        page: page ?? _page,
+        results: results ?? _results,
+        totalPages: totalPages ?? _totalPages,
+        totalResults: totalResults ?? _totalResults,
+      );
+
   int? get page => _page;
+
   List<Results>? get results => _results;
+
   int? get totalPages => _totalPages;
+
   int? get totalResults => _totalResults;
 
   Map<String, dynamic> toJson() {
@@ -54,7 +64,6 @@ SearchModel copyWith({  int? page,
     map['total_results'] = _totalResults;
     return map;
   }
-
 }
 
 /// adult : false
@@ -75,21 +84,22 @@ SearchModel copyWith({  int? page,
 
 class Results {
   Results({
-      bool? adult, 
-      String? backdropPath, 
-      List<int>? genreIds, 
-      int? id, 
-      String? mediaType, 
-      String? originalLanguage, 
-      String? originalTitle, 
-      String? overview, 
-      double? popularity, 
-      String? posterPath, 
-      String? releaseDate, 
-      String? title, 
-      bool? video, 
-      double? voteAverage, 
-      int? voteCount,}){
+    bool? adult,
+    String? backdropPath,
+    List<int>? genreIds,
+    int? id,
+    String? mediaType,
+    String? originalLanguage,
+    String? originalTitle,
+    String? overview,
+    dynamic popularity,
+    String? posterPath,
+    String? releaseDate,
+    String? title,
+    bool? video,
+    dynamic voteAverage,
+    int? voteCount,
+  }) {
     _adult = adult;
     _backdropPath = backdropPath;
     _genreIds = genreIds;
@@ -105,7 +115,7 @@ class Results {
     _video = video;
     _voteAverage = voteAverage;
     _voteCount = voteCount;
-}
+  }
 
   Results.fromJson(dynamic json) {
     _adult = json['adult'];
@@ -124,6 +134,7 @@ class Results {
     _voteAverage = json['vote_average'];
     _voteCount = json['vote_count'];
   }
+
   bool? _adult;
   String? _backdropPath;
   List<int>? _genreIds;
@@ -132,58 +143,77 @@ class Results {
   String? _originalLanguage;
   String? _originalTitle;
   String? _overview;
-  double? _popularity;
+  dynamic _popularity;
   String? _posterPath;
   String? _releaseDate;
   String? _title;
   bool? _video;
-  double? _voteAverage;
+  dynamic _voteAverage;
   int? _voteCount;
-Results copyWith({  bool? adult,
-  String? backdropPath,
-  List<int>? genreIds,
-  int? id,
-  String? mediaType,
-  String? originalLanguage,
-  String? originalTitle,
-  String? overview,
-  double? popularity,
-  String? posterPath,
-  String? releaseDate,
-  String? title,
-  bool? video,
-  double? voteAverage,
-  int? voteCount,
-}) => Results(  adult: adult ?? _adult,
-  backdropPath: backdropPath ?? _backdropPath,
-  genreIds: genreIds ?? _genreIds,
-  id: id ?? _id,
-  mediaType: mediaType ?? _mediaType,
-  originalLanguage: originalLanguage ?? _originalLanguage,
-  originalTitle: originalTitle ?? _originalTitle,
-  overview: overview ?? _overview,
-  popularity: popularity ?? _popularity,
-  posterPath: posterPath ?? _posterPath,
-  releaseDate: releaseDate ?? _releaseDate,
-  title: title ?? _title,
-  video: video ?? _video,
-  voteAverage: voteAverage ?? _voteAverage,
-  voteCount: voteCount ?? _voteCount,
-);
+
+  Results copyWith({
+    bool? adult,
+    String? backdropPath,
+    List<int>? genreIds,
+    int? id,
+    String? mediaType,
+    String? originalLanguage,
+    String? originalTitle,
+    String? overview,
+    dynamic popularity,
+    String? posterPath,
+    String? releaseDate,
+    String? title,
+    bool? video,
+    dynamic voteAverage,
+    int? voteCount,
+  }) =>
+      Results(
+        adult: adult ?? _adult,
+        backdropPath: backdropPath ?? _backdropPath,
+        genreIds: genreIds ?? _genreIds,
+        id: id ?? _id,
+        mediaType: mediaType ?? _mediaType,
+        originalLanguage: originalLanguage ?? _originalLanguage,
+        originalTitle: originalTitle ?? _originalTitle,
+        overview: overview ?? _overview,
+        popularity: popularity ?? _popularity,
+        posterPath: posterPath ?? _posterPath,
+        releaseDate: releaseDate ?? _releaseDate,
+        title: title ?? _title,
+        video: video ?? _video,
+        voteAverage: voteAverage ?? _voteAverage,
+        voteCount: voteCount ?? _voteCount,
+      );
+
   bool? get adult => _adult;
+
   String? get backdropPath => _backdropPath;
+
   List<int>? get genreIds => _genreIds;
+
   int? get id => _id;
+
   String? get mediaType => _mediaType;
+
   String? get originalLanguage => _originalLanguage;
+
   String? get originalTitle => _originalTitle;
+
   String? get overview => _overview;
-  double? get popularity => _popularity;
+
+  dynamic get popularity => _popularity;
+
   String? get posterPath => _posterPath;
+
   String? get releaseDate => _releaseDate;
+
   String? get title => _title;
+
   bool? get video => _video;
-  double? get voteAverage => _voteAverage;
+
+  dynamic get voteAverage => _voteAverage;
+
   int? get voteCount => _voteCount;
 
   Map<String, dynamic> toJson() {
@@ -205,5 +235,4 @@ Results copyWith({  bool? adult,
     map['vote_count'] = _voteCount;
     return map;
   }
-
 }

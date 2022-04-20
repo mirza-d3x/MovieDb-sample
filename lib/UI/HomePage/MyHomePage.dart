@@ -53,14 +53,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 borderRadius: BorderRadius.circular(10)),
             child: TextField(
               textAlign: TextAlign.center,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 border: InputBorder.none,
                 hintText: "Search Movies & Tv Shows",
                 prefixIcon: Icon(Icons.search),
               ),
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (ctx) => ScreenSearch(),
+                  builder: (ctx) => const ScreenSearch(),
                 ),
               ),
             ),

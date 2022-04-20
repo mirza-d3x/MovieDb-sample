@@ -1,24 +1,24 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'package:apisample/Api/apiException.dart';
-import 'package:apisample/UI/HomePage/MyHomePage.dart';
 import 'package:http/http.dart';
-import 'package:apisample/UI/SearchScreen/searchScreen.dart';
 
 class ApiClient {
   static final String basePath = "https://api.themoviedb.org/3/";
   String apiKey = "a5621ef03b6cb42a8c1ffb828d33ba8c";
 
   Future<Response> invokeApi(
-      String path, String method, Object? body, bool toggleUrl) async {
+      String path, String method, Object? body, bool toggleUrl,String query) async {
     Map<String, String> headerparams = {};
     Response response;
 
-// https://api.themoviedb.org/3/search/multi?api_key=a5621ef03b6cb42a8c1ffb828d33ba8c&language=en-US&query=naradan&page=1&include_adult=false
+// https://api.themoviedb.org/3/search/multi?api_key=a5621ef03b6cb42a8c1ffb828d33ba8c&query=naradan
 
     String url = toggleUrl
-        ? basePath + path + '?api_key=$apiKey'
-        : basePath + path + '?api_key=$apiKey' + searchQuery;
+        ? basePath + path + '?api_key=$apiKey'+ '&query=$query'
+        : basePath + path + '?api_key=$apiKey' ;
+    print('fromApiClient$query');
+    print('ApiClient ${basePath + path + '?api_key=$apiKey' + '&query=$query'}');
     print(url);
 
     final nullableHeaderParams = (headerparams.isEmpty) ? null : headerparams;

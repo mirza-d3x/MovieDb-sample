@@ -1,3 +1,4 @@
+import 'package:apisample/Model/searchModel.dart';
 import 'package:apisample/Provider/MovieDetails/movieDetailProvider.dart';
 import 'package:apisample/Provider/SearchResults/searchProvider.dart';
 import 'package:apisample/Provider/TrendingProvider/providertrending.dart';
@@ -6,7 +7,6 @@ import 'package:apisample/Provider/TvShowsProvider/tvShowsProvider.dart';
 import 'package:apisample/UI/HomePage/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:apisample/Model/searchModel.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -23,9 +23,9 @@ void main() {
       ChangeNotifierProvider<TvShowDetailsProvider>(
         create: (_) => TvShowDetailsProvider(),
       ),
-      ChangeNotifierProvider<SearchModel>(
+      ChangeNotifierProvider<SearchProvider>(
         create: (_) => SearchProvider(),
-      )
+      ),
     ],
     child: MyApp(),
   ));

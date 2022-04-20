@@ -8,9 +8,10 @@ class SearchProvider with ChangeNotifier {
 
   bool loading = false;
 
-  getSearchResultsProv(context,String searchQuery) async {
+  getSearchResultsProv(context,String value) async {
     loading = true;
-    searchModel = await moviesApi.getSearchResulsApi(searchQuery);
+    searchModel = await moviesApi.getSearchResulsApi(value);
+    print('Proivder:$value');
     loading = false;
     notifyListeners();
   }
