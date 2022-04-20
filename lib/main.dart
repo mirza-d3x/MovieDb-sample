@@ -1,9 +1,8 @@
-import 'package:apisample/Model/searchModel.dart';
-import 'package:apisample/Provider/MovieDetails/movieDetailProvider.dart';
-import 'package:apisample/Provider/SearchResults/searchProvider.dart';
-import 'package:apisample/Provider/TrendingProvider/providertrending.dart';
-import 'package:apisample/Provider/TvShowsProvider/tvShowDetailsProvider.dart';
-import 'package:apisample/Provider/TvShowsProvider/tvShowsProvider.dart';
+import 'package:apisample/Provider/movieDetailProvider.dart';
+import 'package:apisample/Provider/searchProvider.dart';
+import 'package:apisample/Provider/providertrending.dart';
+import 'package:apisample/Provider/tvShowDetailsProvider.dart';
+import 'package:apisample/Provider/tvShowsProvider.dart';
 import 'package:apisample/UI/HomePage/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

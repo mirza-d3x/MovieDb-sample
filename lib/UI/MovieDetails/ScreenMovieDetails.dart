@@ -1,4 +1,4 @@
-import 'package:apisample/Provider/MovieDetails/movieDetailProvider.dart';
+import 'package:apisample/Provider/movieDetailProvider.dart';
 import 'package:apisample/UI/HomePage/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,4 +1,4 @@
-import 'package:apisample/Provider/SearchResults/searchProvider.dart';
+import 'package:apisample/Provider/searchProvider.dart';
 import 'package:apisample/UI/HomePage/MyHomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,7 +11,7 @@ class ScreenSearch extends StatefulWidget {
 }
 
 bool search = true;
-
+// ${searPrv.searchModel.results!.length.toString()}
 class _ScreenSearchState extends State<ScreenSearch> {
   @override
   Widget build(BuildContext context) {
@@ -64,7 +64,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                       Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Text(
-                          'Found ${searPrv.searchModel.results!.length.toString()} Results',
+                          'Found Results',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: Colors.white,

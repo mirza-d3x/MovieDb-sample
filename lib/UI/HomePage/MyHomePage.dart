@@ -1,6 +1,6 @@
 import 'package:apisample/Model/TrendingModel.dart';
-import 'package:apisample/Provider/TrendingProvider/providertrending.dart';
-import 'package:apisample/Provider/TvShowsProvider/tvShowsProvider.dart';
+import 'package:apisample/Provider/providertrending.dart';
+import 'package:apisample/Provider/tvShowsProvider.dart';
 import 'package:apisample/UI/MovieDetails/ScreenMovieDetails.dart';
 import 'package:apisample/UI/SearchScreen/searchScreen.dart';
 import 'package:apisample/UI/TvShows/tvShowsDetails.dart';
