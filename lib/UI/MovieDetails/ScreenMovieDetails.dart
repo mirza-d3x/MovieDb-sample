@@ -25,7 +25,7 @@ class _ScreenMovieDetailsState extends State<ScreenMovieDetails> {
 
   @override
   Widget build(BuildContext context) {
-    final providerData = Provider.of<MovieProvider>(context, listen: false);
+    final providerData = Provider.of<MovieProvider>(context);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,

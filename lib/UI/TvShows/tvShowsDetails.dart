@@ -15,7 +15,7 @@ class _ScreenTvShowDetails extends State<ScreenTvShowDetails> {
   @override
   void initState() {
     final tvShDetProv =
-        Provider.of<TvShowDetailsProvider>(context, listen: false);
+        Provider.of<TvShowDetailsProvider>(context,listen: false);
     tvShDetProv.getTvShDePro(context, widget.id);
     // TODO: implement initState
     super.initState();
@@ -26,7 +26,7 @@ class _ScreenTvShowDetails extends State<ScreenTvShowDetails> {
   @override
   Widget build(BuildContext context) {
     final tvShDetProv =
-        Provider.of<TvShowDetailsProvider>(context, listen: false);
+        Provider.of<TvShowDetailsProvider>(context);
 
     return SafeArea(
       child: Scaffold(

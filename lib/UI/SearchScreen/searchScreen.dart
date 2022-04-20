@@ -11,11 +11,12 @@ class ScreenSearch extends StatefulWidget {
 }
 
 bool search = true;
+
 // ${searPrv.searchModel.results!.length.toString()}
 class _ScreenSearchState extends State<ScreenSearch> {
   @override
   Widget build(BuildContext context) {
-    final searPrv = Provider.of<SearchProvider>(context, listen: false);
+    final searPrv = Provider.of<SearchProvider>(context);
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.black,
@@ -34,7 +35,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                   hintText: "Search Movies & Tv Shows",
                   prefixIcon: Icon(Icons.search),
                 ),
-                onSubmitted: (value) {
+                onChanged: (value) {
                   final seahPrv =
                       Provider.of<SearchProvider>(context, listen: false);
                   seahPrv.getSearchResultsProv(context, value);
@@ -64,7 +65,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                       Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: Text(
-                          'Found Results',
+                          'Found ${searPrv.searchModel.results!.length.toString()} Results',
                           textAlign: TextAlign.center,
                           style: const TextStyle(
                             color: Colors.white,
@@ -83,6 +84,7 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                     maxHeight:
                                         MediaQuery.of(context).size.height),
                                 child: GridView.builder(
+                                  shrinkWrap: true,
                                   gridDelegate:
                                       const SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
@@ -93,20 +95,28 @@ class _ScreenSearchState extends State<ScreenSearch> {
                                       searPrv.searchModel.results!.length,
                                   itemBuilder:
                                       (BuildContext context, int index) =>
-                                          Container(
+                                          SizedBox(
                                     height: MediaQuery.of(context).size.height /
                                         .050,
                                     width: MediaQuery.of(context).size.width /
                                         .030,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        image: NetworkImage(
-                                          baseUrl +
-                                              searPrv.searchModel
-                                                  .results![index].posterPath
-                                                  .toString(),
+                                    child: Column(
+                                      children: [
+                                        Image(
+                                          image: NetworkImage(
+                                            baseUrl +
+                                                searPrv.searchModel
+                                                    .results![index].posterPath
+                                                    .toString(),
+                                          ),
                                         ),
-                                      ),
+                                        Container(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width /
+                                              .030,
+                                        )
+                                      ],
                                     ),
                                   ),
                                 ),

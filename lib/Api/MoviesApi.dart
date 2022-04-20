@@ -13,7 +13,7 @@ class MoviesApi {
   String moviePath = "movie/";
   String tvShowsPath = "tv/top_rated";
   String tvShowPath = "tv/";
-  String searchPatch = "search/movie";
+  String searchPatch = "search/multi";
 
   Future<MovieDetailsModel> getMoviesDetails(String id) async {
     Response response =
