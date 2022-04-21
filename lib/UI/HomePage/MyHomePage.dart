@@ -44,10 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: ConstrainedBox(
           constraints:
               BoxConstraints(minHeight: MediaQuery.of(context).size.height),
           child: ListView(
+            primary: false,
             shrinkWrap: true,
             children: [
               Container(
@@ -94,8 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
               tvshowsProvider.loading
                   ? const Center(child: CircularProgressIndicator())
                   : Container(
-                      height: MediaQuery.of(context).size.height* .40,
-
+                      height: MediaQuery.of(context).size.height * .40,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount:
